@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+  /*
+   * SIWA SOFTWARE CONFIDENTIAL
+   *
+   * Copyright (c) 1999 - 2014 Siwa Software
+   * All Rights Reserved.
+   *
+   * NOTICE:  All information contained herein is, and remains the
+   * property of Siwa Software and its suppliers, if any. The
+   * intellectual and technical concepts contained herein are
+   * proprietary to Siwa Software and its suppliers and may be covered
+   * by U.S. and Foreign Patents, patents in process, and are protected
+   * by trade secret or copyright law.
+   * Dissemination of this information or reproduction of this material
+   * is strictly forbidden unless prior written permission is obtained
+   * from Siwa Software.
+   */
+  ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <parent>
+        <artifactId>platform-vip-service-broker</artifactId>
+        <groupId>com.siwasoftware.platform-vip</groupId>
+        <version>1.0-SNAPSHOT</version>
+    </parent>
+    <modelVersion>4.0.0</modelVersion>
+
+    <artifactId>platform-vip-service-broker-impl</artifactId>
+
+    <dependencies>
+        <!-- project -->
+        <dependency>
+            <groupId>com.siwasoftware.platform-vip</groupId>
+            <artifactId>platform-vip-service-broker-api</artifactId>
+            <version>1.0-SNAPSHOT</version>
+        </dependency>
+        <!-- toolkit -->
+        <dependency>
+            <groupId>tkt.stilleto</groupId>
+            <artifactId>stilleto-daokit-core</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>tkt.stilleto</groupId>
+            <artifactId>stilleto-daokit-jdbi</artifactId>
+        </dependency>
+
+        <!-- this should match the one in: dropwizard -->
+        <dependency>
+            <groupId>org.jdbi</groupId>
+            <artifactId>jdbi</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>com.codahale.metrics</groupId>
+            <artifactId>metrics-core</artifactId>
+        </dependency>
+
+    </dependencies>
+
+</project>

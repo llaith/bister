@@ -1,0 +1,142 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+  /*
+   * SIWA SOFTWARE CONFIDENTIAL
+   *
+   * Copyright (c) 1999 - 2014 Siwa Software
+   * All Rights Reserved.
+   *
+   * NOTICE:  All information contained herein is, and remains the
+   * property of Siwa Software and its suppliers, if any. The
+   * intellectual and technical concepts contained herein arevip
+   * proprietary to Siwa Software and its suppliers and may be covered
+   * by U.S. and Foreign Patents, patents in process, and are protected
+   * by trade secret or copyright law.
+   * Dissemination of this information or reproduction of this material
+   * is strictly forbidden unless prior written permission is obtained
+   * from Siwa Software.
+   */
+  ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-->
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <groupId>com.siwasoftware.platform-vip</groupId>
+    <artifactId>platform-vip</artifactId>
+    <packaging>pom</packaging>
+    <version>1.0-SNAPSHOT</version>
+    <modules>
+        <module>platform-vip-service-broker</module>
+    </modules>
+
+    <properties>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+
+        <maven.compiler.source>1.8</maven.compiler.source>
+        <maven.compiler.target>1.8</maven.compiler.target>
+
+        <!-- really common dependencies -->
+        <slf4j.version>1.7.5</slf4j.version>
+        <junit.version>4.11</junit.version>
+        <guava.version>15.0</guava.version>
+
+        <!-- extracted versions -->
+        <dropwizard.version>0.7.1</dropwizard.version>
+
+        <!-- version extract from extracted version -->
+        <!-- drop wizard compat -->
+        <dw.metrics.version>3.0.2</dw.metrics.version>
+        <dw.jdbi.version>2.55</dw.jdbi.version>
+        <dw.jackson.api.version>2.3.0</dw.jackson.api.version>
+        <dw.jackson.version>2.3.3</dw.jackson.version>
+        <dw.jackson.mapper.version>1.9.12</dw.jackson.mapper.version>
+
+    </properties>
+    
+    <dependencyManagement>
+        <dependencies>
+            <dependency>
+                <groupId>tkt.stilleto</groupId>
+                <artifactId>stilleto-webkit-bom</artifactId>
+                <version>1.0-SNAPSHOT</version>
+                <type>pom</type>
+                <scope>import</scope>
+            </dependency>
+
+            <dependency>
+                <groupId>tkt.stilleto</groupId>
+                <artifactId>stilleto-daokit-bom</artifactId>
+                <version>1.0-SNAPSHOT</version>
+                <type>pom</type>
+                <scope>import</scope>
+            </dependency>
+
+            <dependency>
+                <groupId>tkt.stilleto</groupId>
+                <artifactId>stilleto-toolkit-bom</artifactId>
+                <version>1.0-SNAPSHOT</version>
+                <type>pom</type>
+                <scope>import</scope>
+            </dependency>
+        </dependencies>
+    </dependencyManagement>
+
+    <dependencies>
+        <!-- SLF4J API -->
+        <!-- the outer project sets the logging type -->
+        <!-- standardising logging is so painful (glassfish,intellij,etc) I changed my mind, went with jul (yuck), and moved it here -->
+        <!-- ADD JVM PROPERTY -Djava.util.logging.SimpleFormatter.format="%1$tY-%1$tm-%1$td %1$tH:%1$tM:%1$tS %4$s %2$s %5$s%6$s%n" -->
+        <dependency>
+            <groupId>org.slf4j</groupId>
+            <artifactId>slf4j-api</artifactId>
+            <version>${slf4j.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.slf4j</groupId>
+            <artifactId>slf4j-jdk14</artifactId>
+            <version>${slf4j.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>commons-logging</groupId>
+            <artifactId>commons-logging</artifactId>
+            <version>1.1.1</version>
+            <scope>provided</scope>
+        </dependency>
+        <!-- and testing -->
+        <dependency>
+            <groupId>junit</groupId>
+            <artifactId>junit</artifactId>
+            <version>${junit.version}</version>
+            <scope>test</scope>
+        </dependency>
+        <!-- theres also a hamcrest with normal scope in the codegen stuff -->
+        <dependency>
+            <groupId>org.hamcrest</groupId>
+            <artifactId>hamcrest-all</artifactId>
+            <version>1.3</version>
+            <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.mockito</groupId>
+            <artifactId>mockito-all</artifactId>
+            <version>1.8.1</version>
+            <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>com.google.code.findbugs</groupId>
+            <artifactId>jsr305</artifactId>
+            <version>3.0.0</version>
+        </dependency>
+
+
+        <!-- temp -->
+        <dependency>
+            <groupId>tkt.stilleto</groupId>
+            <artifactId>stilleto-toolkit-common</artifactId>
+            <version>1.0-SNAPSHOT</version>
+        </dependency>
+
+    </dependencies>
+
+</project>

@@ -4,7 +4,7 @@
 package com.siwasoftware.platform.core.dto.broker;
 
 
-import tkt.stilleto.toolkit.common.exception.ApplicationException;
+import tkt.stilleto.toolkit.common.util.exception.ApplicationException;
 import tkt.stilleto.toolkit.common.util.lang.Guard;
 import tkt.stilleto.toolkit.db.core.dao.simple.SimpleEntity;
 
@@ -54,7 +54,7 @@ public class Lock extends SimpleEntity {
     }
 
     public Lock verify(final String watermark, final String target) {
-        
+
         if (!(this.watermark.equals(watermark) && this.target.equals(target))) throw new ApplicationException(
                 "Lock does not match target.",
                 String.format(
@@ -62,7 +62,7 @@ public class Lock extends SimpleEntity {
                         this,
                         watermark,
                         target));
-        
+
         return this;
     }
 
@@ -79,7 +79,7 @@ public class Lock extends SimpleEntity {
     /**
      * Sets the value for setSessionId
      *
-     * @param    sessionId    the param value for
+     * @param sessionId the param value for
      */
     public void setSessionId(final Integer sessionId) {
         this.sessionId = sessionId;
@@ -97,7 +97,7 @@ public class Lock extends SimpleEntity {
     /**
      * Sets the value for setLockDate
      *
-     * @param    lockDate    the param value for
+     * @param lockDate the param value for
      */
     public void setLockDate(final Date lockDate) {
         this.lockDate = lockDate;
@@ -115,7 +115,7 @@ public class Lock extends SimpleEntity {
     /**
      * Sets the value for setLockTtl
      *
-     * @param    lockTtl    the param value for
+     * @param lockTtl the param value for
      */
     public void setLockTtl(final Integer lockTtl) {
         this.lockTtl = lockTtl;
@@ -133,7 +133,7 @@ public class Lock extends SimpleEntity {
     /**
      * Sets the value for setType
      *
-     * @param    type    the param value for
+     * @param type the param value for
      */
     public void setType(final LockType type) {
         this.type = type.name();
@@ -151,7 +151,7 @@ public class Lock extends SimpleEntity {
     /**
      * Sets the value for setWatermark
      *
-     * @param    watermark    the param value for
+     * @param watermark the param value for
      */
     public void setWatermark(final String watermark) {
         this.watermark = watermark;
@@ -169,7 +169,7 @@ public class Lock extends SimpleEntity {
     /**
      * Sets the value for setTarget
      *
-     * @param    target    the param value for
+     * @param target the param value for
      */
     public void setTarget(final String target) {
         this.target = target;
